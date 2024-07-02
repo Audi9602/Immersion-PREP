@@ -1,0 +1,21 @@
+PROBLEM: https://www.hackerearth.com/practice/algorithms/greedy/basics-of-greedy-algorithms/practice-problems/algorithm/likeable-array-3e61d786/?utm_source=header&utm_medium=search&utm_campaign=he-search
+
+CODE:
+from sys import stdin
+from collections import Counter
+def main ():
+    read = stdin.readline
+    t = int (read ())
+    for t_ in range (t):
+        n = int (read ())
+        a = list (map (int, read ().split ()))
+        ct = Counter (a)
+        res = 0
+        for nr, c in ct.items ():
+            if c > nr: res += c - nr
+            elif c < nr: 
+                df = nr - c
+                res += df if df < c else c
+        print (res)
+if __name__ == "__main__": 
+main ()
